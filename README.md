@@ -1,4 +1,9 @@
 # React + Vite
+Frontend (Vercel):
+https://cs-564-art-gallery-eta.vercel.app
+
+Backend (Render):
+https://art-gallery-backend-35vp.onrender.com/api
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
