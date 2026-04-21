@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import apiService from "../services/apiService";
-import "../styles/infopiece.css"; 
+import "../styles/infopiece.css";
 // Import CSS file
 
 const InfoPiece = () => {
   // Get the objectNumber from URL params
   const { id } = useParams();
-  // Debugging statement 
-  console.log("id:", id); 
+  // Debugging statement
+  console.log("id:", id);
   const [artwork, setArtwork] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -17,7 +17,7 @@ const InfoPiece = () => {
     const fetchArtwork = async () => {
       try {
         // Fetch artwork details by objectNumber
-        const artworkData = await apiService.getPieceById(id); 
+        const artworkData = await apiService.getPieceById(id);
         setArtwork(artworkData);
       } catch (error) {
         console.error("Error fetching artwork details:", error);
@@ -42,11 +42,14 @@ const InfoPiece = () => {
   // Display artwork details
   return (
     <div className="container">
-      <h1 id='piecetitle' >{artwork.title}</h1>
-      <img id = 'pieceimg' src={artwork.webImage.url} alt={artwork.title} />
-      <p id='art'>Artist: {artwork.principalOrFirstMaker}</p>
-      <p id='art'>Year: {artwork.dating.presentingDate}</p>
-      <p id='art'>Description: {artwork.plaqueDescriptionEnglish}</p>
+      <h1 id="piecetitle">{artwork.title}</h1>
+      <img id="pieceimg" src={artwork.webImage.url} alt={artwork.title} />
+      <p id="art">Artist: {artwork.principalOrFirstMaker}</p>
+      <p id="art">Year: {artwork.dating.presentingDate}</p>
+      <p id="art">Description: {artwork.description}</p>
+      <p style={{ fontStyle: "italic", color: "gray" }}>
+        (Translation to English is not available)
+      </p>
     </div>
   );
 };

@@ -52,7 +52,7 @@ const Home = () => {
           autoPlay={true}
           interval={3000}
           centerMode={true}
-          centerSlidePercentage={33.33}
+          centerSlidePercentage={40}
           className="carousel"
         >
           {artworks.map((artwork, index) => (
