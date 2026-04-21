@@ -3,6 +3,7 @@ import cors from "cors";
 
 const app = express();
 const PORT = process.env.PORT || 5000;
+const BASE_URL = process.env.BASE_URL || "http://localhost:5000";
 
 app.use(cors());
 
@@ -317,7 +318,7 @@ async function normalizeResolvedObject(linkedArtObj) {
     principalMaker: getMakerFromLinkedArt(linkedArtObj) || "Unknown",
     webImage: {
       url: collectionPageUrl
-        ? `http://localhost:5000/api/image-by-page?url=${encodeURIComponent(
+        ? `${BASE_URL}/api/image-by-page?url=${encodeURIComponent(
             collectionPageUrl,
           )}`
         : "",
